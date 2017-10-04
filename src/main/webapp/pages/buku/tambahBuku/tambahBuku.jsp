@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="${pageContext.servletContext.contextPath}/pages/buku/tambahBuku" method="post">
+        <form action="${pageContext.servletContext.contextPath}/buku/new" method="post">
         <div>
             <label for="judulBuku">Judul Buku:</label>
                 <input type="text" name="judulBuku" id="judulBuku"/>

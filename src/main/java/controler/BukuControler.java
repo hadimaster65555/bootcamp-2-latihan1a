@@ -5,7 +5,11 @@
  */
 package controler;
 
+import dao.BukuDao;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +42,12 @@ public class BukuControler extends HttpServlet{
         buku.setJumlahBuku(Integer.valueOf((req.getParameter("jumlahBuku"))));
         System.out.println(buku.toString());
         
+        BukuDao bukuDao = new BukuDao();
+        try {
+            bukuDao.save(buku);
+        } catch (SQLException ex) {
+            Logger.getLogger(BukuControler.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

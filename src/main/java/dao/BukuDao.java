@@ -18,7 +18,7 @@ import model.Buku;
  * @author USER
  */
 public class BukuDao {
-    public void save() throws SQLException{
+    public void save(Buku buku) throws SQLException{
         KoneksiDatabase koneksiDB = new KoneksiDatabase();
         DataSource datasource = koneksiDB.getDataSource();
         Connection connection = datasource.getConnection();
@@ -26,10 +26,10 @@ public class BukuDao {
         String sql ="INSERT INTO perpus.buku(judul_buku,tahun_terbit,pengarang,jumlah_buku) VALUES (?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         //tempat isi recordnya
-        statement.setString(1,"Belajar Java Koding");
-        statement.setInt(2,2017);
-        statement.setString(3,"Addds");
-        statement.setInt(4,4);
+        statement.setString(1,buku.getJudulBuku());
+        statement.setInt(2,buku.getTahunTerbit());
+        statement.setString(3,buku.getPengarang());
+        statement.setInt(4,buku.getJumlahBuku());
         
         
         

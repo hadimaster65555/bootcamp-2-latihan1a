@@ -4,7 +4,7 @@
     Author     : USER
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false" language="java"%>
 <!DOCTYPE html>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
@@ -21,6 +21,7 @@
                     <td>Tahun Terbit</td>
                     <td>Jumlah Buku</td>
                     <td>Nama Pengarang</td>
+                    <td>Aksi</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -32,8 +33,8 @@
                         <td>${sebuahBuku.jumlahBuku}</td>
                         <td>${sebuahBuku.pengarang}</td>
                         <td>
-                            <a href="${pageContext.servletContext.contextPath}/buku/delete?kode_buku=
-                               ${sebuahBuku.id}">Hapus</a>
+                            <a href="${pageContext.servletContext.contextPath}/buku/delete?kode_buku=${sebuahBuku.id}">Hapus</a>
+                            <a href="${pageContext.servletContext.contextPath}/buku/ubah?kode_buku=${sebuahBuku.id}">Edit</a>
                         </td>
                         </tr>
                     </c:forEach>
